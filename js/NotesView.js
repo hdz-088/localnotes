@@ -14,8 +14,13 @@ export default class NotesView {
         <div class="notes__list"></div>
       </div>
       <div class="notes__preview">
-        <input class="notes__title" type="text" placeholder="Enter Title" />
-        <textarea class="notes__body">Body of note</textarea>
+        <input class="notes__title" type="text" placeholder="Welcom to LocalNotes" />
+        <textarea class="notes__body"></textarea>
+      </div>
+      <div class="notes__empty-state">
+        <img src="assets/penguin.png" alt="No notes selected" class="notes__empty-image" />
+        <h1 class="notes__empty-title">LocalNotes</h1>
+        <p class="notes__empty-watermark">Made by <b><a href="https://github.com/hdz-088">HDz</a> 🦉</b>
       </div>
     `;
 
@@ -105,9 +110,18 @@ export default class NotesView {
       .classList.add("notes__list-item--selected");
   }
 
+  // updateNotePreviewVisibility(visible) {
+  //   this.root.querySelector(".notes__preview").style.visibility = visible
+  //     ? "visible"
+  //     : "hidden";
+  // }
+
   updateNotePreviewVisibility(visible) {
-    this.root.querySelector(".notes__preview").style.visibility = visible
-      ? "visible"
-      : "hidden";
+    this.root.querySelector(".notes__preview").style.display = visible
+      ? "flex"
+      : "none";
+    this.root.querySelector(".notes__empty-state").style.display = visible
+      ? "none"
+      : "flex";
   }
 }
